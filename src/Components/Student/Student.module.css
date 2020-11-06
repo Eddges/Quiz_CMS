@@ -7,5 +7,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 20px;
 }
 /*# sourceMappingURL=Student.module.css.map */

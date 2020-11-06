@@ -2,4 +2,18 @@
     width : 50%;
     display : flex;
     flex-direction: column;
+    padding : 20px;
+    padding-bottom : 100px;
+    .Add{
+        .AddButton{
+            margin-top : 20px;
+        }
+        .AddQuestion{
+            margin-top : 10px;
+        }
+        .Option{
+            display : flex;
+            margin-top: 5px;
+        }
+    }
 }
