@@ -7,7 +7,9 @@ class Student extends React.Component {
 
     state = {
         response: [],
-        uid: 0
+        uid: 0,
+        score: 0,
+        showScore : false
     }
 
     optionSelect = (qid, oid) => {
@@ -28,30 +30,29 @@ class Student extends React.Component {
 
         console.log('newA : ', newA)
 
-        // const i = newA.forEach((iterator, index) => {
-        //     if(iterator.qid==qid) {
-        //         console.log('Same qid', index)
-        //         return index
-        //     }
-        //     else{
-        //         console.log('Different qid')
-        //         return null
-        //     }
-        // })
-        // console.log('i : ', i)
-        // if(i) {
-        //     newA[i].oid = oid
-        // }
-        // else {
-        //     newA.push(
-        //         {
-        //             qid,
-        //             oid
-        //         }
-        //     )
-        // }
-        // console.log('newA = ', newA)
     }
+
+    handleSubmit = () => {
+        console.log(this.props.state.lot)
+        const newA = this.state.response
+        let score = 0
+        newA.map((iterator, index) => {
+            this.props.state.lot.map((itr, ind) => {
+                if(itr.questionId===iterator.qid && itr.correct===iterator.oid) {
+                    score = score + 1
+                }
+            })
+        })
+
+        this.setState({
+            score : score,
+            showScore : true
+        }, () => {
+                console.log('Your score is : ', this.state.score)
+            }
+        )
+    }
+
 
     render(){
         return(
@@ -62,7 +63,10 @@ class Student extends React.Component {
                         return <Question key={index} {...iterator} no={index} optionSelect={(qid, oid) => this.optionSelect(qid, oid)} />
                     })
                 }
-                <button className={classes.SubmitButton}>Submit</button>
+                <button className={classes.SubmitButton} onClick={this.handleSubmit}>Submit</button>
+                {
+                    this.state.showScore && <strong>Your score is {this.state.score}</strong>
+                }
             </div>
         )
     }
