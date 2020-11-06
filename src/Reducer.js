@@ -3,6 +3,7 @@ const initialState = {
         {
             question: 'What is the capital of India?',
             questionId: 900,
+            correct: 529,
             options: [
                 {
                     text: 'San Francisco',
@@ -21,6 +22,7 @@ const initialState = {
         {
             question: 'What is the capital of Bangladesh?',
             questionId: 901,
+            correct: 679,
             options: [
                 {
                     text: 'Kabul',
@@ -33,6 +35,25 @@ const initialState = {
                 {
                     text: 'New Delhi',
                     optionId: 519
+                }
+            ]
+        },
+        {
+            question: 'What is the capital of Bhutan?',
+            questionId: 8001,
+            correct: 767886,
+            options: [
+                {
+                    text: 'La Paz',
+                    optionId: 7977
+                },
+                {
+                    text: 'Mauritiana',
+                    optionId: 9757
+                },
+                {
+                    text: 'Thimpu',
+                    optionId: 767886
                 }
             ]
         }

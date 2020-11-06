@@ -10,9 +10,9 @@ class Question extends React.Component{
                 {
                     this.props.options.map((iterator, index) => {
                         return(
-                            <div>
+                            <div className={classes.Options} key={index} onClick={() => this.props.optionSelect(this.props.questionId, iterator.optionId)}>
                                 <input type="radio" name={this.props.questionId} value={iterator.optionId} />
-                                <label for={iterator.optionId}>{iterator.text}</label> 
+                                <label htmlFor={iterator.optionId}>{iterator.text}</label> 
                             </div>
                         )
                         

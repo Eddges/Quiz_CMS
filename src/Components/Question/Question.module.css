@@ -5,4 +5,12 @@
   margin: 10px 0px;
   width: auto;
 }
+
+.Container .Options {
+  padding: 5px 0px;
+}
+
+.Container .Options label {
+  margin-left: 10px;
+}
 /*# sourceMappingURL=Question.module.css.map */

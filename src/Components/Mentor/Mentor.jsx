@@ -6,9 +6,9 @@ const Mentor = (props) => {
     return(
         <div className={classes.Container}>
             Mentor
-            {props.state.lot.map(i => {
+            {/* {props.state.lot.map(i => {
                 return <p>{i.question}</p>
-            })}
+            })} */}
         </div>
     )
 }
