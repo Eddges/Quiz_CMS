@@ -61,6 +61,14 @@ const initialState = {
 }
 
 const Reducer = (state = initialState, action) => {
+    switch(action.type) {
+        case 'UPDATE_LOT' : 
+            console.log('Updating lot with : ', action.payload)
+            state = {
+                ...state,
+                lot : action.payload
+            }
+    }
     return state
 }
 

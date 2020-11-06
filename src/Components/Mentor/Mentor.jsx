@@ -13,7 +13,7 @@ class Mentor extends React.Component {
         questionInput : '',
         optionInput : '',
         options : [],
-        showDoneButton : []
+        showDoneButton : false
     }
 
     handleAddQuestion = () => {
@@ -26,7 +26,8 @@ class Mentor extends React.Component {
     handleAddOption = () => {
         this.setState({
             ...this.state,
-            showOptionInput : true
+            showOptionInput : true,
+            showDoneButton : true
         })
     }
 
@@ -119,6 +120,7 @@ class Mentor extends React.Component {
 
     }
 
+
     handleWrong = () => {
         let flag = false
 
@@ -185,6 +187,20 @@ class Mentor extends React.Component {
 
     }
 
+    handleDone = () => {
+        this.props.updateLot(this.state.lot)
+        this.setState({
+            ...this.state,
+            showQuestionInput : false,
+            showOptionInput : false,
+            questionInput : '',
+            optionInput : '',
+            options : [],
+            showDoneButton : false
+        })
+    }
+
+
 
     render(){
         return(
@@ -221,8 +237,11 @@ class Mentor extends React.Component {
                                             <button>Cancel</button>
                                         </div> : null
                                 }
+                                {
+                                    this.state.showDoneButton ? <button onClick={this.handleDone}>Done</button> : <button onClick={this.handleAddOption}>Add Options</button>
+                                }
 
-                                <button onClick={this.handleAddOption}>Add Options</button>
+                                
                             </div> : null
                     }
                 </div>
@@ -238,4 +257,13 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Mentor)
+const mapDispatchToProps = dispatch => {
+    return{
+        updateLot : (lot) => dispatch({
+            type : 'UPDATE_LOT',
+            payload : lot
+        })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Mentor)
